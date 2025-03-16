@@ -22,17 +22,23 @@ document.addEventListener("DOMContentLoaded",()=>{
         ball.style.left=`${ballx}px`;
         ball.style.top=`${bally}px`;
 
-        if(ballx>table.offsetWidth-ball.offsetWidth-18 || ballx<=18)dx*=-1;
+        if(ballx<handle.offsetWidth && bally>=handle.offsetTop 
+            && bally<=handle.offsetHeight+handle.offsetTop){
+            dx*=-1;
+        }
+
+        if(ballx>table.offsetWidth-ball.offsetWidth || ballx<=0)dx*=-1;
         if(bally>table.offsetHeight-ball.offsetHeight || bally<=0)dy*=-1;
 
-    },15);
+    },10);
 
 
     let paddley=250;
-    let py=5;
+    let py=10;
     handle.style.top=`${paddley}px`;
 
     document.addEventListener("keydown",(event)=>{
+        event.preventDefault();
         if(event.keyCode==40 && paddley<table.offsetHeight-handle.offsetHeight){
             //DOWN
             paddley+=py;
