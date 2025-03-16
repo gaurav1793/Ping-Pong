@@ -1,0 +1,35 @@
+html{
+    box-sizing: border-box;
+}
+
+*,*::before,*::after{
+    box-sizing: inherit;
+}
+
+
+h2{
+    text-align: center;
+}
+
+#ping_pong_table{
+    border:solid 2px black;
+    width: 700px;
+    height: 500px;
+    margin: auto;
+    position: relative;
+}
+
+#handle{
+    height: 70px;
+    width: 20px;
+    background-color: blueviolet;
+    position: absolute;
+}
+
+#ball{
+    height: 25px;
+    width: 25px;
+    border-radius: 100%;
+    background-color: red;
+    position: absolute;
+}
