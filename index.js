@@ -2,12 +2,13 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     let table = document.getElementById('ping_pong_table');
     let ball = document.getElementById('ball');
-    let handle = document.getElementById('handle');
+    let handle = document.getElementById('handle1');
+    let handle2=document.getElementById('handle2');
 
 
     //initiall co-ord of ball
-    let ballx=400;
-    let bally=30;
+    let ballx=350;
+    let bally=250;
     ball.style.left=`${ballx}px`;
     ball.style.top=`${bally}px`;
 
@@ -33,21 +34,34 @@ document.addEventListener("DOMContentLoaded",()=>{
     },10);
 
 
-    let paddley=250;
-    let py=10;
-    handle.style.top=`${paddley}px`;
+    let paddley1=250;
+    let paddley2=250;
+    let py=15;
+    handle.style.top=`${paddley1}px`;
+    handle2.style.top=`${paddley2}px`;
 
     document.addEventListener("keydown",(event)=>{
         event.preventDefault();
-        if(event.keyCode==40 && paddley<table.offsetHeight-handle.offsetHeight){
+        if(event.keyCode==83 && paddley1<table.offsetHeight-handle.offsetHeight){
             //DOWN
-            paddley+=py;
+            paddley1+=py;
         }
-        else if(event.keyCode==38 && paddley>0){
+        else if(event.keyCode==87 && paddley1>0){
             //UP
-            paddley+=(-1)*py;    
+            paddley1+=(-1)*py;    
         }
-        handle.style.top=`${paddley}px`;
+        handle.style.top=`${paddley1}px`;
+    });
+
+    document.addEventListener("keydown",(event)=>{
+        event.preventDefault();
+         if(event.keyCode==40 && paddley2<table.offsetHeight-handle2.offsetHeight){
+            paddley2+=py;
+        }
+        else if(event.keyCode==38 && paddley2>0){
+            paddley2+=(-1)*py;
+        }
+        handle2.style.top=`${paddley2}px`;
     });
 
 })
